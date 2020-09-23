@@ -11,7 +11,7 @@ server = app.server
 
 # data
 
-df = pd.read_csv('/data/Grid_demand_trends_20200923223432.csv', parse_dates=True)
+df = pd.read_csv('data/Grid_demand_trends_20200923223432.csv', parse_dates=True)
 df = df.drop(columns="Trading period")
 
 df['year'] = pd.DatetimeIndex(df['Period start']).year
