@@ -9,19 +9,20 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
+# data
 
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+df = pd.read_csv('/data/Grid_demand_trends_20200923223432.csv', parse_dates=True)
+df = df.drop(columns="Trading period")
+
+df['year'] = pd.DatetimeIndex(df['Period start']).year
+df['month'] = pd.DatetimeIndex(df['Period start']).month
+
+
+# figure
+fig = px.line(df, x='Period start', y="Demand (GWh)", color='Region ID')
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
-
+    html.H1(children='Grid Demand Forecasting'),
     html.Div(children='''
         Dash: A web application framework for Python.
     '''),
