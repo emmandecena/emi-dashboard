@@ -24,7 +24,7 @@ fig = px.line(df, x='Period start', y="Demand (GWh)", color='Region ID')
 app.layout = html.Div(children=[
     html.H1(children='Grid Demand Forecasting'),
     html.Div(children='''
-        Dash: A web application framework for Python.
+        by Emmanuel Decena.
     '''),
 
     dcc.Graph(
