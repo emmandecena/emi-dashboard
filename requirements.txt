@@ -88,7 +88,7 @@ threadpoolctl==2.1.0
 toml==0.10.1
 tornado==6.0.4
 tqdm==4.49.0
-traitlets==5.0.4
+traitlets==4.3.0
 urllib3==1.25.10
 waitress==1.4.4
 wcwidth==0.2.5
