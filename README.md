@@ -1,3 +1,3 @@
 # NZ Electricity Demand Forecast Dashboard
 
-www.emi-dashboard.herokuapp.com
+https://emi-dashboard.herokuapp.com/
